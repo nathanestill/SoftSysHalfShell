@@ -10,6 +10,8 @@ char **inputToCommand(char *input){
 	and separates the input into an array of strings, separated
 	by each space in the input
 	*/
+	
+
 }
 
 int getCommands(char **commands){
@@ -17,27 +19,32 @@ int getCommands(char **commands){
 	TODO: For the starting thing, this should 
 	just check if commands has exit, and return -1 if so
 	*/ 
+	return -1;
 }
 
 int main(){
 	char** command;
-	char* input;
+	char input[50];
 	pid_t child;
 	int randomVariable;
+	int commandVal = -1;
+	command[0] = "exi";
 	while(1){
 		fgets(input, 50, stdin);
-		command = inputToCommand(input);
+		//command = inputToCommand(input);
 		child = fork();
 		if(child == 0){
-			getCommands(command);
-			if(getCommands == -1){
+			//getCommands(command);
+			if(commandVal == -1){
 				break;
 			}
 		}
 		else{
+			if(strcmp(command[0],"exit") == 0){
+				break;
+			}
 			waitpid(child, &randomVariable, WUNTRACED);
 		}
-		free(input);
 		free(command);
 	}
 }
