@@ -14,8 +14,9 @@ char **inputToCommand(char *input){
 	char *token;
 	int index = 0;
 	token = strtok(input," ");
-
+	printf("%s\n", token);
 	while(token != NULL){
+		printf("Enters\n");
 		command[index] = token;
 		index++;
 		token = strtok(NULL," ");
@@ -28,7 +29,12 @@ int getCommands(char **commands){
 	TODO: For the starting thing, this should 
 	just check if commands has exit, and return -1 if so
 	*/ 
-	return -1;
+	if(strcmp(commands[0], "exit")){
+		return -1;
+	}
+	else {
+		return 0;
+	}
 }
 
 int main(){
@@ -48,6 +54,8 @@ int main(){
 			}
 		}
 		else{
+			printf("%s", command[0]);
+			printf("%d\n", strcmp(command[0],"exit"));
 			if(strcmp(command[0],"exit") == 0){
 				break;
 			}
