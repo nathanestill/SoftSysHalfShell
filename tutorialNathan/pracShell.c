@@ -10,8 +10,17 @@ char **inputToCommand(char *input){
 	and separates the input into an array of strings, separated
 	by each space in the input
 	*/
-	
+	char **command = malloc(8 * sizeof(char *));
+	char *token;
+	int index = 0;
+	token = strtok(input," ");
 
+	while(token != NULL){
+		command[index] = token;
+		index++;
+		token = strtok(NULL," ");
+	}
+	return command;
 }
 
 int getCommands(char **commands){
@@ -28,10 +37,9 @@ int main(){
 	pid_t child;
 	int randomVariable;
 	int commandVal = -1;
-	command[0] = "exi";
 	while(1){
 		fgets(input, 50, stdin);
-		//command = inputToCommand(input);
+		command = inputToCommand(input);
 		child = fork();
 		if(child == 0){
 			//getCommands(command);
