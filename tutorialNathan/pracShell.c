@@ -14,9 +14,7 @@ char **inputToCommand(char *input){
 	char *token;
 	int index = 0;
 	token = strtok(input," ");
-	printf("%s\n", token);
 	while(token != NULL){
-		printf("Enters\n");
 		command[index] = token;
 		index++;
 		token = strtok(NULL," ");
@@ -45,17 +43,16 @@ int main(){
 	int commandVal = -1;
 	while(1){
 		fgets(input, 50, stdin);
+		strtok(input, "\n");
 		command = inputToCommand(input);
 		child = fork();
 		if(child == 0){
-			//getCommands(command);
+			execvp(command[0], command);
 			if(commandVal == -1){
 				break;
 			}
 		}
 		else{
-			printf("%s", command[0]);
-			printf("%d\n", strcmp(command[0],"exit"));
 			if(strcmp(command[0],"exit") == 0){
 				break;
 			}
