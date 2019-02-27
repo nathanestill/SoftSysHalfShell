@@ -6,9 +6,9 @@
 
 char **inputToCommand(char *input){
 	/*
-	TODO: Make this function take in the input string,
-	and separates the input into an array of strings, separated
-	by each space in the input
+	splits the input into commands by spaces
+	input: string that contains commands
+	returns an array of strings that are the commands
 	*/
 	char **command = malloc(8 * sizeof(char *));
 	char *token;
