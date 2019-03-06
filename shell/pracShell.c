@@ -24,7 +24,8 @@ char **inputToCommand(char *input){
 
 int getCommands(char **commands){
 	/*
-	TODO: make this be a switch that calls the correct one
+	TODO: For the starting thing, this should 
+	just check if commands has exit, and return -1 if so
 	*/ 
 	if(strcmp(commands[0], "exit")){
 		return -1;
