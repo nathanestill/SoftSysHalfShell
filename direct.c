@@ -7,6 +7,8 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <termios.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 void changeDirectory(char *args[]){
   //TODO: Create a function that switches from current directory to specified directory
@@ -22,8 +24,12 @@ void changeDirectory(char *args[]){
 
 int makeDirectory(char* args[]){
   //TODO: Create a function that creates a new file
+  struct stat bish= {0};
+  if(stat(args[1],&bish)==-1){
+    mkdir(args[1],0700);
+  }
 }
 
 int main(int argc, char *argv[]){
-  changeDirectory(argv);
+  makeDirectory(argv);
 }
