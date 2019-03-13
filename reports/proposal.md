@@ -21,4 +21,6 @@ The first task is for both of us to read through all of the tutorials that we ha
 
 Next, the team members will collaborate to create a outline of all of the functions in the code and comments on what they need to achieve. The proof of completion for this task will be a full code skeleton that covers all the functions necessary for the MVP to be completed.
 
-Finally we will create a Trello that outlines each of the steps that are required to complete the project and assign each task to a team member.
+Finally we will create a Trello that outlines each of the steps that are required to complete the project and assign each task to a team member
+
+##
