@@ -9,17 +9,14 @@
 #include <termios.h>
 
 int manageEnviron(char * argv[], int args){
-  char *commie = argv[0];
-  {
-    case "cd":
+  int commie = 0;
+  switch(commie){
+    case 0:
       changeDirectory(argv,args);
       break;
-    case "mkdir":
+    case -1:
       makeDirectory(argv,args);
-    case "rm":
-      removeFile(argv,args);
-    case "ls":
-      list(args,argv);
+      break;
   }
 }
 char **inputToCommand(char *input, int *len){
