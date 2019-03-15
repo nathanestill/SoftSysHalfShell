@@ -7,8 +7,9 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <termios.h>
+#include "switch.h"
 
-int manageEnviron(char * argv[], int args){
+int manageEnviron(char *argv[], int args){
   if(!strcmp(argv[0],"cd")){
   	changeDirectory(argv,args);
   } else if(!strcmp(argv[0],"mkdir")){
@@ -56,6 +57,7 @@ int main(){
 	char** command;
 	char input[50];
 	pid_t child;
+  int len;
 	int randomVariable;
 	int commandVal = -1;
 	while(1){
@@ -64,7 +66,7 @@ int main(){
 		command = inputToCommand(input);
 		child = fork();
 		if(child == 0){
-			manageEnviron(command[0], command);
+			manageEnviron(command, &len);
 			if(commandVal == -1){
 				break;
 			}
