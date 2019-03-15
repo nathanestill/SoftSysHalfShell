@@ -12,15 +12,16 @@ void init(){
   //TODO:
 }
 
-int manageEnviron(char * args[]){
-  switch(args[0]){
+int manageEnviron(char * argv[], int args){
+  switch(argv[0]){
     case "cd":
-      changeDirectory(args);
+      changeDirectory(argv,args);
       break;
     case "mkdir":
-      makeDirectory(args);
+      makeDirectory(argv,args);
     case "rm":
-
+      removeFile(argv,args);
     case "ls":
+      list(args,argv);
   }
 }
