@@ -9,17 +9,16 @@
 #include <termios.h>
 
 int manageEnviron(char * argv[], int args){
-  char *commie = argv[0];
-  {
-    case "cd":
-      changeDirectory(argv,args);
-      break;
-    case "mkdir":
-      makeDirectory(argv,args);
-    case "rm":
-      removeFile(argv,args);
-    case "ls":
-      list(args,argv);
+  if(!strcmp(argv[0],"cd")){
+  	changeDirectory(argv,args);
+  } else if(!strcmp(argv[0],"mkdir")){
+    makeDirectory(argv,args);
+  } else if(!strcmp(argv[0],"rm")){
+  	removeFile(argv,args);
+  } else if(!strcmp(argv[0],"ls")){
+    list(args,argv);
+  } else {
+  	printf("No function called %s.\n", argv[0]);
   }
 }
 char **inputToCommand(char *input, int *len){
