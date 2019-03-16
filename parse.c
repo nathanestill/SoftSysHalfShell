@@ -12,6 +12,10 @@
 int manageEnviron(char *argv[], int args){
   if(!strcmp(argv[0],"cd")){
   	changeDirectory(argv,args);
+    char *currentDirectory = (char*) calloc(1024, sizeof(char));
+    char hostn[1204] = "";
+  	gethostname(hostn, sizeof(hostn));
+  	printf("%s@%s %s > ", getenv("LOGNAME"), hostn, getcwd(currentDirectory, 1024));
   } else if(!strcmp(argv[0],"mkdir")){
     makeDirectory(argv,args);
   } else if(!strcmp(argv[0],"rm")){
@@ -57,10 +61,10 @@ int main(){
 	char** command;
 	char input[50];
 	pid_t child;
-  int len;
 	int randomVariable;
 	int commandVal = -1;
 	while(1){
+    int len=0;
 		fgets(input, 50, stdin);
 		strtok(input, "\n");
 		command = inputToCommand(input,&len);

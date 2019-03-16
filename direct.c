@@ -16,6 +16,7 @@ void changeDirectory(char *args[], int len){
     chdir(getenv("home"));
   }
   else {
+    printf("chese");
     if(chdir(args[1])==-1){
       printf("This doesn't even exist my dude");
     }
