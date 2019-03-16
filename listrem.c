@@ -47,7 +47,7 @@ void list(int argc, char* argv[]){
 				printf("dummy");
 		}
 		argc -= optind;
-		argv += optind;	
+		argv += optind;
 	}
 	DIR *d;
     struct dirent *dir;
@@ -65,7 +65,7 @@ void list(int argc, char* argv[]){
 	            	if(Q){printf("\"");}
 	            	if(m){printf(",");}
 	            	printf(" ");
-	            	
+
 	            }
 	        }
         }
@@ -100,7 +100,7 @@ int removeFile(int argc, char* argv[]){
 				printf("it's ok\n");
 		}
 		argc -= optind;
-		argv += optind;	
+		argv += optind;
 	}
 	printf("%s\n", argv[argc-1]);
 	DIR *d;
@@ -137,7 +137,7 @@ int removeFile(int argc, char* argv[]){
 		    	}
 		    }
 		    status = remove(argv[argc-1]);
-			
+
 		}
 		else{
 			status = remove(argv[argc-1]);
@@ -147,8 +147,4 @@ int removeFile(int argc, char* argv[]){
 		}
 	}
 	return 0;
-}
-
-int main(int argc, char* argv[]){
-	removeFile(argc, argv);
 }

@@ -29,7 +29,3 @@ int makeDirectory(char* args[], int len){
     mkdir(args[1],0700);
   }
 }
-
-int main(int argc, char *argv[]){
-  makeDirectory(argv);
-}

@@ -40,12 +40,3 @@ void init_shell(){
     tcgetattr(shell_terminal,&shell_tmodes);
   }
 }
-
-void main(){
-  init_shell();
-  while(1){
-    char *ehhh=malloc(sizeof(char)*100);
-    printf("insert leh boi");
-    scanf("%s\n", ehhh);
-  }
-}
