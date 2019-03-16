@@ -15,7 +15,7 @@ int manageEnviron(char *argv[], int args){
   } else if(!strcmp(argv[0],"mkdir")){
     makeDirectory(argv,args);
   } else if(!strcmp(argv[0],"rm")){
-  	removeFile(argv,args);
+  	removeFile(args,argv);
   } else if(!strcmp(argv[0],"ls")){
     list(args,argv);
   } else {
@@ -63,10 +63,10 @@ int main(){
 	while(1){
 		fgets(input, 50, stdin);
 		strtok(input, "\n");
-		command = inputToCommand(input);
+		command = inputToCommand(input,&len);
 		child = fork();
 		if(child == 0){
-			manageEnviron(command, &len);
+			manageEnviron(command, len);
 			if(commandVal == -1){
 				break;
 			}

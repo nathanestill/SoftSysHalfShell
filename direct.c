@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-void changeDirectory(char *args[]){
+void changeDirectory(char *args[], int len){
   //TODO: Create a function that switches from current directory to specified directory
   if(args[1] == "~"){
     chdir(getenv("home"));
@@ -22,7 +22,7 @@ void changeDirectory(char *args[]){
   }
 }
 
-int makeDirectory(char* args[]){
+int makeDirectory(char* args[], int len){
   //TODO: Create a function that creates a new file
   struct stat bish= {0};
   if(stat(args[1],&bish)==-1){

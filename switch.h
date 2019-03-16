@@ -16,5 +16,5 @@ int is_regular_file(const char *path);
 void printDir(struct dirent* dir, int m);
 void list(int argc, char* argv[]);
 int removeFile(int argc, char* argv[]);
-void changeDirectory(char *args[]);
-int makeDirectory(char* args[];
+void changeDirectory(char *args[], int len);
+int makeDirectory(char* args[], int len);
