@@ -11,12 +11,9 @@
 
 int manageEnviron(char *argv[], int args){
   if(!strcmp(argv[0],"cd")){
-  	changeDirectory(argv,args);
-    char *currentDirectory = (char*) calloc(1024, sizeof(char));
-    char hostn[1204] = "";
-  	gethostname(hostn, sizeof(hostn));
-  	printf("%s@%s %s > ", getenv("LOGNAME"), hostn, getcwd(currentDirectory, 1024));
-  } else if(!strcmp(argv[0],"mkdir")){
+    changeDirectory(argv,args);
+  }
+  else if(!strcmp(argv[0],"mkdir")){
     makeDirectory(argv,args);
   } else if(!strcmp(argv[0],"rm")){
   	removeFile(args,argv);
@@ -64,13 +61,21 @@ int main(){
 	int randomVariable;
 	int commandVal = -1;
 	while(1){
+    char *currentDirectory = (char*) calloc(1024, sizeof(char));
+    char hostn[1204] = "";
+  	gethostname(hostn, sizeof(hostn));
+  	printf("%s@%s %s > ", getenv("LOGNAME"), hostn, getcwd(currentDirectory, 1024));
     int len=0;
 		fgets(input, 50, stdin);
 		strtok(input, "\n");
 		command = inputToCommand(input,&len);
+    if(!strcmp(command[0],"cd")){
+      changeDirectory(command,len);
+      continue;
+    }
 		child = fork();
 		if(child == 0){
-			manageEnviron(command, len);
+			execvp(command[0], command);
 			if(commandVal == -1){
 				break;
 			}

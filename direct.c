@@ -10,15 +10,16 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+
 void changeDirectory(char *args[], int len){
   //TODO: Create a function that switches from current directory to specified directory
   if(args[1] == "~"){
-    chdir(getenv("home"));
+    chdir(getenv("./"));
   }
   else {
-    printf("chese");
+    printf("chese\n");
     if(chdir(args[1])==-1){
-      printf("This doesn't even exist my dude");
+      printf("This doesn't even exist my dude\n");
     }
   }
 }
