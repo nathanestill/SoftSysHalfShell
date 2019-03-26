@@ -24,6 +24,8 @@ int manageEnviron(char *argv[], int args){
   	removeFile(args,argv);
   } else if(!strcmp(argv[0],"ls")){
     list(args,argv);
+  } else if(!strcmp(argv[0],"exit")){
+    printf("BOOYAKASHA!!!\n");
   } else {
   	printf("No function called %s.\n", argv[0]);
   }
@@ -88,7 +90,6 @@ int main(){
 		}
 		else{
 			if(strcmp(command[0],"exit") == 0){
-				printf("BOOYAKASHA!!!\n");
 				break;
 			}
 			waitpid(child, &randomVariable, WUNTRACED);
