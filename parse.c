@@ -10,6 +10,11 @@
 #include "switch.h"
 
 int manageEnviron(char *argv[], int args){
+  /*
+  runs the appropriate function from the command outline
+  input: array of strings and lenfth of the array
+  returns: 1 or 0
+  */
   if(!strcmp(argv[0],"cd")){
     changeDirectory(argv,args);
   }
@@ -76,7 +81,7 @@ int main(){
     }
 		child = fork();
 		if(child == 0){
-			execvp(command[0], command);
+			manageEnviron(command, len);
 			if(commandVal == -1){
 				break;
 			}

@@ -12,7 +12,14 @@
 
 
 void changeDirectory(char *args[], int len){
-  //TODO: Create a function that switches from current directory to specified directory
+  /*
+   Function takes in an array of arguements from the command line and the number of arguements. The function then changes the current working directory
+   to what the user specified. If the file does not exit the function prints an error.
+
+   Input: array of chars and size of array
+
+   Returns: nothing
+  */
   if(args[1] == "~"){
     chdir(getenv("./"));
   }
@@ -24,7 +31,15 @@ void changeDirectory(char *args[], int len){
 }
 
 int makeDirectory(char* args[], int len){
-  //TODO: Create a function that creates a new file
+  /*
+  Function takes in an array of arguements from the command line and the number of arguements.
+  The function then creates a file with the specified name at the specified file location.
+
+   Input: array of chars and size of array
+
+   Returns: nothing
+  */
+
   struct stat file= {0};
   if(stat(args[1],&file)==-1){
     mkdir(args[1],0700);
