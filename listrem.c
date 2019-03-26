@@ -12,22 +12,25 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+/*
+Gets the path of the file and returns whether the file is regular
+path: string of the path
+
+returns 0 if success, -1 otherwise
+*/
 int is_regular_file(const char *path){
     struct stat path_stat;
     stat(path, &path_stat);
     return S_ISREG(path_stat.st_mode);
 }
 
-void printDir(struct dirent* dir, int m){
-	if(m){
-		printf("%s, ", dir->d_name);
-	} else {
-		printf("%s ", dir->d_name);
-	}
-}
-
+/*
+returns a list of the files and folders in a directory
+paramaters: a - includes files and folders with '.'
+			m - puts commas between each directory
+			Q - puts quotation marks around each directory
+*/
 void list(int argc, char* argv[]){
-  //TODO make a function that prints a of the files within a directory
 	int a = 0;
 	int m = 0;
 	int Q = 0;
@@ -88,6 +91,10 @@ void list(int argc, char* argv[]){
     }
 }
 
+/*
+removes the file specified
+parameters: r - removes directories as well as files.
+*/
 int removeFile(int argc, char* argv[]){
 	int r = 0;
 	char ch;
@@ -97,7 +104,7 @@ int removeFile(int argc, char* argv[]){
 				r = 1;
 				break;
 			default:
-				printf("it's ok\n");
+				printf("Those aren't valid arguments. \n");
 		}
 		argc -= optind;
 		argv += optind;
@@ -110,7 +117,6 @@ int removeFile(int argc, char* argv[]){
 	char directory[strlen(argv[argc-1])+3];
 	strcpy(directory,"./");
 	strcat(directory,argv[argc-1]);
-	printf("here\n");
 	if(is_regular_file(argv[argc-1])){
 		status = remove(argv[argc-1]);
 		printf("%d\n", status);
@@ -123,16 +129,13 @@ int removeFile(int argc, char* argv[]){
 		    d = opendir(directory);
 		    while ((dir = readdir(d)) != NULL){
 		    	if(dir->d_name[0] != '.'){
-		    		printf("here\n");
 					char nextDir[1+strlen(argv[argc-1])+strlen(dir->d_name)];
 					strcpy(nextDir,argv[argc-1]);
 					strcat(nextDir,"/");
 					strcat(nextDir,dir->d_name);
-					printf("hernow\n");
 					array[0] = "./a.out";
 					array[1] = "-r";
 		    		array[2] = nextDir;
-		    		printf("now\n");
 		    		removeFile(3,array);
 		    	}
 		    }
