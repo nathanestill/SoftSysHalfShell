@@ -17,7 +17,6 @@ void changeDirectory(char *args[], int len){
     chdir(getenv("./"));
   }
   else {
-    printf("chese\n");
     if(chdir(args[1])==-1){
       printf("This doesn't even exist my dude\n");
     }
@@ -26,8 +25,8 @@ void changeDirectory(char *args[], int len){
 
 int makeDirectory(char* args[], int len){
   //TODO: Create a function that creates a new file
-  struct stat bish= {0};
-  if(stat(args[1],&bish)==-1){
+  struct stat file= {0};
+  if(stat(args[1],&file)==-1){
     mkdir(args[1],0700);
   }
 }
