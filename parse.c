@@ -55,6 +55,7 @@ int getCommands(char **commands){
 }
 
 int main(){
+	printf("COWABUNGA DUDES!\n");
 	char** command;
 	char input[50];
 	pid_t child;
@@ -82,6 +83,7 @@ int main(){
 		}
 		else{
 			if(strcmp(command[0],"exit") == 0){
+				printf("BOOYAKASHA!!!\n");
 				break;
 			}
 			waitpid(child, &randomVariable, WUNTRACED);
