@@ -47,7 +47,7 @@ void list(int argc, char* argv[]){
 				Q = 1;
 				continue;
 			default:
-				printf("dummy");
+				printf("Not a valid argument.");
 		}
 		argc -= optind;
 		argv += optind;
