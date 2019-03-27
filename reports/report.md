@@ -23,7 +23,7 @@ We started by going through the tutorials to get a good grasp of how a shell wor
 We implemented the start of a shell, with a program that makes a child process that handles commands and closes when they give the exit command. From there, we started to work on individual commands. We separated the shell into multiple files because it allowed us to collaborate without worrying about Github errors.
 
 #### List
-ls returns all of the files and folders in the current directory. It has three possible paramaters that can include files that start with '.', add commas between each file, and add quotations around each file. It also color codes the output, with files in white and folders in blue. This is mostly done with the dirent library, which gets the files and folders within a directory, as well as the type.
+ls returns all of the files and folders in the current directory. It has three possible parameters that can include files that start with '.', add commas between each file, and add quotations around each file. It also color codes the output, with files in white and folders in blue. The file collecting is mostly done with the dirent library, which gets the files and folders within a directory, as well as the type.
 
 ```C
 while ((dir = readdir(d)) != NULL)
@@ -100,4 +100,4 @@ if(child == 0){
 }
 ```
 ### Reflection
-We have a better understanding of the Linux shell after having read through the tutorials of making a shell. This includes learning about parent and child processes, which we were previously unaware of. We learned a lot more C, primarily working with arguments passed, due to our commands taking many different arguments. We also learned much about how much C has control of files and directories on the computer. We completed our MVP and not much more.
+We have a better understanding of the Linux shell after having read through the tutorials of making a shell. This includes learning about parent and child processes, which we were previously unaware of. We learned a lot more C, primarily working with arguments passed, due to our commands taking many different arguments. We also learned much about how much C has control of files and directories on the computer. We completed our MVP, but we unfortunately did not have the time to move further with the project.
