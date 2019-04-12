@@ -1,4 +1,4 @@
-# Software Systems Project 1: Turtles in a Half Shell
+# Turtles in a Half Shell: A Shell Implementation in C
 ## Nathan Estill and Jordan Crawford O'Banner
 
 ### Project Goals
